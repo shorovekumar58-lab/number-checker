@@ -16,7 +16,9 @@ Base.metadata.create_all(bind=engine)
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 
-DATA_FOLDER = "E:/number_checker/data"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(BASE_DIR)
+DATA_FOLDER = os.path.join(PROJECT_DIR, "data")
 TEXT_BACKUP_FILE = os.path.join(DATA_FOLDER, "saved_numbers.txt")
 SHARED_NUMBER_FILE = os.path.join(DATA_FOLDER, "shared_number.txt")
 
